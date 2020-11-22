@@ -10,7 +10,8 @@ class Card():
 
 
 class Deck():
-    def __init__(self,key):
+    def __init__(self,key=''):
+
         self.deck = []
         suits = ['Червей','Бубей','Пик','Треф']
         names = {'Туз':11,
@@ -36,6 +37,8 @@ class Deck():
                         break
 
 
+
+
     def show(self):
         for card in self.deck:
             card.show()
@@ -48,7 +51,21 @@ class Deck():
         top_card = self.deck.pop()
         return top_card
 
+    def count_score(self):
+        score = 0
+        for card in self.deck:
+            score+=card.score
 
-d1=Deck(36)
-d1.show()
-d1.pick_top_card()
+        return 'Очков у Вас в руке: {}'.format(score)
+
+
+
+hand = Deck()
+hand.show()
+deck1 = Deck(36)
+deck1.shuffle()
+hand.deck.append(deck1.pick_top_card())
+hand.deck.append(deck1.pick_top_card())
+hand.show()
+print(hand.count_score())
+
