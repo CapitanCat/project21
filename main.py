@@ -56,16 +56,33 @@ class Deck():
         for card in self.deck:
             score+=card.score
 
-        return 'Очков у Вас в руке: {}'.format(score)
+        return score
 
 
 
-hand = Deck()
-hand.show()
-deck1 = Deck(36)
-deck1.shuffle()
-hand.deck.append(deck1.pick_top_card())
-hand.deck.append(deck1.pick_top_card())
-hand.show()
-print(hand.count_score())
+
+
+def player_play():
+    hand = Deck()
+    deck1 = Deck(36)
+    deck1.shuffle()
+    hand.deck.append(deck1.pick_top_card())
+    hand.deck.append(deck1.pick_top_card())
+    hand.show()
+    while True:
+        score = int(hand.count_score())
+        print('Очков у вас в руке {}'.format(score))
+        if score > 21:
+            print('Перебор(')
+            break
+        vvod = input('Хочешь еще 1 карту?(y/n): ')
+        if vvod == 'y':
+            hand.deck.append(deck1.pick_top_card())
+        if vvod == 'n':
+            print('Набратно очков: {}. Ждем результат соперника'.format(score))
+            break
+    return score
+
+rezult = player_play()
+print(rezult)
 
