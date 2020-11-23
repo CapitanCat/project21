@@ -80,5 +80,5 @@ def player_play():
 
 
 result = player_play()
-print(result)
+print(result)  # Мы написали результат, а я ебал в рот интерпретаторы Питона
 
