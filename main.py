@@ -79,8 +79,6 @@ def player_play():
     return score
 
 
-if __name__ == "__main__":      # Чтобы при импорте файла main не начинала выполняться программа
-    result = player_play()
-    print(result)
-
+result = player_play()
+print(result)
 
