@@ -97,7 +97,6 @@ def game_template():
         deck.shuffle()
         p.hand.cards.append(deck.pick_top_card())
         p.hand.cards.append(deck.pick_top_card())
-        p.makemove()  # Этот метод некоторым образом решает, пасовать или нет; если нет, то тянем карту
         while True:
             p.makemove()  # Этот метод некоторым образом решает, пасовать или нет; если нет, то тянем карту
             # Игрок тянет карты или пока не спасует сам, или пока не наберет больше 21
